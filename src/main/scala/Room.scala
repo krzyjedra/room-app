@@ -1,5 +1,8 @@
-class Room(val name: String, val capacity: Int) {
-
+case class Room(name: String, capacity: Int) {
+//  assert(capacity > 0, "capacity must be greater than zero")
+  if (capacity < 1) {
+    throw new IllegalStateException("capacity must be greater than zero")
+  }
   var peopleCount = 0
 
   def enter(person: String): Boolean = {
